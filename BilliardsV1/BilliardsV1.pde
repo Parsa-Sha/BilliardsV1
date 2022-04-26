@@ -1,3 +1,5 @@
+ArrayList<Ball> myBalls;
+
 final int INTRO = 0;
 final int GAME = 1;
 final int PAUSE = 2;
@@ -5,8 +7,17 @@ final int GAMEWON = 3;
 final int GAMEOVER = 4;
 int mode = INTRO;
 
+final int FIRSTPLAYER = 0;
+final int SECONDPLAYER = 1;
+final int CALCULATE = 2;
+final int EVALUATE = 3;
+int gameState = FIRSTPLAYER;
+
+
+
 void setup() {
   size(960, 540);
+  myBalls = new ArrayList<Ball>();
 }
 
 void draw() {
