@@ -6,12 +6,19 @@
 // Evaluate
 
 void game() {
+  
+  println("working");
+  image(table, 0, 0);
+  
   switch(gameState) {
-    case FIRSTPLAYER:
-    firstPlayer();
+    case PLAYERBEGIN:
+    playerBegin();
     break;
-    case SECONDPLAYER:
-    secondPlayer();
+    case PLAYERPLACE:
+    playerPlace();
+    break;
+    case PLAYERSHOOT:
+    playerShoot();
     break;
     case CALCULATE:
     calculate();
@@ -22,5 +29,4 @@ void game() {
     default:
     println("GAMESTATE ERROR. ERROR = " + gameState);
   }
-  background(0, 0, 120);
 }

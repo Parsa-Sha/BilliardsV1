@@ -7,16 +7,20 @@ final int GAMEWON = 3;
 final int GAMEOVER = 4;
 int mode = INTRO;
 
-final int FIRSTPLAYER = 0;
-final int SECONDPLAYER = 1;
-final int CALCULATE = 2;
-final int EVALUATE = 3;
-int gameState = FIRSTPLAYER;
+final int PLAYERBEGIN = 0;
+final int PLAYERPLACE = 1;
+final int PLAYERSHOOT = 2;
+final int CALCULATE = 3;
+final int EVALUATE = 4;
+int gameState = PLAYERPLACE;
 
-
+PImage table;
 
 void setup() {
   size(960, 540);
+  
+  table = loadImage("images\\EightBallTable.png");
+  
   myBalls = new ArrayList<Ball>();
 }
 

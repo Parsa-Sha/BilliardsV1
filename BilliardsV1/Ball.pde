@@ -1,21 +1,22 @@
 abstract class Ball {
-  PVector loc;
+  PVector pos;
   PVector vel;
   int id;
   
   Ball() {
-    loc = new PVector(0, 0);
+    pos = new PVector(0, 0);
     vel = new PVector(0, 0);
     id = 3;
   }
   
   Ball(int identification, PVector location) {
-    loc = location;
+    pos = location;
     vel = new PVector(0, 0);
     id = identification;
   }
   
   void act() {
+    pos.add(vel);
     vel.setMag(vel.mag()*0.3);
   }
 }
