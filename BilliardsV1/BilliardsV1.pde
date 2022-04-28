@@ -1,4 +1,5 @@
 ArrayList<Ball> myBalls;
+Ball objectBall = null;
 
 final int INTRO = 0;
 final int GAME = 1;
@@ -15,11 +16,13 @@ final int EVALUATE = 4;
 int gameState = PLAYERPLACE;
 
 PImage table;
+PImage[] ballImages = new PImage[17];
 
 void setup() {
   size(960, 540);
   
   table = loadImage("images\\EightBallTable.png");
+  imageMode(CENTER);
   
   myBalls = new ArrayList<Ball>();
 }

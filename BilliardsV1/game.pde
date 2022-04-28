@@ -15,7 +15,13 @@
 
 void game() {
   
-  image(table, 0, 0);
+  image(table, width/2, height-480/2);
+  
+  for (int i = 0; i < myBalls.size(); i++) {
+    objectBall = myBalls.get(i);
+    objectBall.show();
+    objectBall.act();
+  }
   
   switch(gameState) {
     case PLAYERBEGIN:

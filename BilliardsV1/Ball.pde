@@ -15,6 +15,10 @@ abstract class Ball {
     id = identification;
   }
   
+  void show() {
+    image(ballImages[id], pos.x, pos.y);
+  }
+  
   void act() {
     pos.add(vel);
     vel.setMag(vel.mag()*0.3);
