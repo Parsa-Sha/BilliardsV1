@@ -22,5 +22,13 @@ abstract class Ball {
   void act() {
     pos.add(vel);
     vel.setMag(vel.mag()*0.3);
+    
+    if (pos.y <= 105 && pos.x >= 85 && pos.x <= 455) vel.y *= -1; // Top left bumper
+    if (pos.y <= 105 && pos.x >= 505 && pos.x <= 875) vel.y *= -1; // Top right bumper
+    if (pos.y >= 495 && pos.x >= 85 && pos.x <= 455) vel.y *= -1; // Bottom left bumper
+    if (pos.y >= 495 && pos.x >= 505 && pos.x <= 875) vel.y *= -1; // Bottom right bumper
+    
+    if (pos.x <= 50 && pos.y >= 135 && pos.y <= 455) vel.x *= -1; // Left bumper
+    if (pos.x >= 910 && pos.y >= 135 && pos.y <= 455) vel.x *= -1; // Right bumper    
   }
 }

@@ -14,32 +14,45 @@
 // All rules
 
 void game() {
-  
+
   image(table, width/2, height-480/2);
-  
+
   for (int i = 0; i < myBalls.size(); i++) {
     objectBall = myBalls.get(i);
     objectBall.show();
     objectBall.act();
   }
-  
+
+
+  rect(85, 95, 370, 10);
+
+  rect(505, 95, 370, 10);
+
+  rect(85, 495, 370, 10);
+
+  rect(505, 495, 370, 10);
+
+  rect(40, 135, 10, 325);
+
+  rect(910, 135, 10, 325);
+
   switch(gameState) {
-    case PLAYERBEGIN:
+  case PLAYERBEGIN:
     playerBegin();
     break;
-    case PLAYERPLACE:
+  case PLAYERPLACE:
     playerPlace();
     break;
-    case PLAYERSHOOT:
+  case PLAYERSHOOT:
     playerShoot();
     break;
-    case CALCULATE:
+  case CALCULATE:
     calculate();
     break;
-    case EVALUATE:
+  case EVALUATE:
     evaluate();
     break;
-    default:
+  default:
     println("GAMESTATE ERROR. ERROR = " + gameState);
   }
 }
