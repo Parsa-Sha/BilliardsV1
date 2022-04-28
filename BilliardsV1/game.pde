@@ -1,3 +1,4 @@
+// First player places ball
 // First player aim
 // Balls move
 // Evaluate
@@ -5,9 +6,15 @@
 // Balls move
 // Evaluate
 
+
+// Collision
+// Pool stick
+// Ball enters holes
+// Scratch
+// All rules
+
 void game() {
   
-  println("working");
   image(table, 0, 0);
   
   switch(gameState) {
