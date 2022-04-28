@@ -1,17 +1,20 @@
 abstract class Ball {
   PVector pos;
   PVector vel;
+  int size;
   int id;
   
   Ball() {
     pos = new PVector(0, 0);
     vel = new PVector(0, 0);
-    id = 3;
+    size = 26;
+    id = 1;
   }
   
   Ball(int identification, PVector location) {
     pos = location;
     vel = new PVector(0, 0);
+    size = 26;
     id = identification;
   }
   

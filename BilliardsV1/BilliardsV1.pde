@@ -15,6 +15,10 @@ final int CALCULATE = 3;
 final int EVALUATE = 4;
 int gameState = PLAYERPLACE;
 
+int[] ballArrangement = new int[15];
+
+boolean newGame = true;
+
 PImage table;
 PImage[] ballImages = new PImage[16];
 
