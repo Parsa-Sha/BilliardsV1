@@ -30,35 +30,45 @@ void game() {
   rect(40, 135, 10, 325);
   rect(910, 135, 10, 325);
   ellipse(60, 115, 26, 26);
-  
-  /*
-  
-  for (int i = 0; i < ballArrangement.length; i++) {
-    if (i == 0) ballArrangement[i] = 1;
-    if (i == 7) ballArrangement[i] = 8;
-  }
-  
-  */
-  
-  
-  //  22.52
-  
-  
-  
-  for (int i = 0; i < 15; i++) {
-    ellipse(width/2, height/2, 20, 20);
-  }
-  
-  int row = 5;
-  
-  for (int i = 0; i < 15; i++) {
-    if (i < 5) ellipse(800, 20 + i, 26, 26);
-    else {
-      ;
-    
+
+
+  if (newGame) {
+    newGame = false;
+
+    for (int i = 0; i < ballArrangement.length; i++) ballArrangement[i] = 16;
+    ballArrangement[0] = 1; // Set one ball and eight ball ids
+    ballArrangement[4] = 8;
+    boolean isNew = false;
+    int idCandidate = 16;
+    int selectionCleared = 0;
+    for (int i = 0; i < ballArrangement.length; i++) {
+      if (i != 0 && i != 4) {
+        while (!isNew) {
+          idCandidate = floor(random(2, 16));
+          for (int j = 0; j < ballArrangement.length; j++) {
+            if (ballArrangement[i] != idCandidate) selectionCleared++; // Checking if random placement is not equal to an already placed ball
+          }
+          if (selectionCleared == ballArrangement.length){
+            isNew = true;
+          } else {
+            selectionCleared = 0;
+          }
+        }
+        ballArrangement[i] = idCandidate;
+        isNew = false;
+        selectionCleared = 0; // Place id into index, then reset
+      }
+    }
+
+    int bpi = 0; // Ball placed index, used to refrence which ball should be placed where
+    for (int i = 0; i < 5; i++) {
+      for (int j = 0; j < 5-i; j++) {
+        myBalls.add(new Ball(ballArrangement[14-bpi], new PVector(800 - i*22.52, 300 + j*26 + i*13)));
+        bpi++;
+      }
     }
   }
-  
+
   switch(gameState) {
   case PLAYERBEGIN:
     playerBegin();

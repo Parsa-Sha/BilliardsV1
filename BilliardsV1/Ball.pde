@@ -1,4 +1,4 @@
-abstract class Ball {
+class Ball {
   PVector pos;
   PVector vel;
   int size;
