@@ -40,8 +40,23 @@ void game() {
   
   */
   
+  
+  //  22.52
+  
+  
+  
   for (int i = 0; i < 15; i++) {
     ellipse(width/2, height/2, 20, 20);
+  }
+  
+  int row = 5;
+  
+  for (int i = 0; i < 15; i++) {
+    if (i < 5) ellipse(800, 20 + i, 26, 26);
+    else {
+      ;
+    
+    }
   }
   
   switch(gameState) {
