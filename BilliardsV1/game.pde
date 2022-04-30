@@ -46,7 +46,7 @@ void game() {
         while (!isNew) {
           idCandidate = floor(random(2, 16));
           for (int j = 0; j < ballArrangement.length; j++) {
-            if (ballArrangement[i] != idCandidate) selectionCleared++; // Checking if random placement is not equal to an already placed ball
+            if (ballArrangement[j] != idCandidate) selectionCleared++; // Checking if random placement is not equal to an already placed ball
           }
           if (selectionCleared == ballArrangement.length){
             isNew = true;
@@ -63,7 +63,7 @@ void game() {
     int bpi = 0; // Ball placed index, used to refrence which ball should be placed where
     for (int i = 0; i < 5; i++) {
       for (int j = 0; j < 5-i; j++) {
-        myBalls.add(new Ball(ballArrangement[14-bpi], new PVector(800 - i*22.52, 300 + j*26 + i*13)));
+        myBalls.add(new Ball(ballArrangement[14-bpi], new PVector(800 - i*22.52, 250 + j*26 + i*13)));
         bpi++;
       }
     }
