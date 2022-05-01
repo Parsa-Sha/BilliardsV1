@@ -13,19 +13,21 @@ final int PLAYERPLACE = 1;
 final int PLAYERSHOOT = 2;
 final int CALCULATE = 3;
 final int EVALUATE = 4;
-int gameState = PLAYERPLACE;
+int gameState = PLAYERSHOOT;
 
 int[] ballArrangement = new int[15];
 
 boolean newGame = true;
 
 PImage table;
+PImage stick;
 PImage[] ballImages = new PImage[16];
 
 void setup() {
   size(960, 540);
   
   table = loadImage("images\\EightBallTable.png");
+  stick = loadImage("images\\poolStick.png");
   ballImages[0] = loadImage("balls\\cueball.png");
   ballImages[1] = loadImage("balls\\1ball.png");
   ballImages[2] = loadImage("balls\\2ball.png");

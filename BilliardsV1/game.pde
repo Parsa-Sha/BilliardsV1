@@ -14,7 +14,7 @@
 // All rules
 
 void game() {
-
+  background(200);
   image(table, width/2, height-480/2);
 
   for (int i = 0; i < myBalls.size(); i++) {
@@ -59,11 +59,13 @@ void game() {
         selectionCleared = 0; // Place id into index, then reset
       }
     }
-
-    int bpi = 0; // Ball placed index, used to refrence which ball should be placed where
+    
+    myBalls = new ArrayList<Ball>();
+    myBalls.add(new PlayerBall());
+    int bpi = 1; // Ball placed index, used to refrence which ball should be placed where
     for (int i = 0; i < 5; i++) {
       for (int j = 0; j < 5-i; j++) {
-        myBalls.add(new Ball(ballArrangement[14-bpi], new PVector(800 - i*22.52, 250 + j*26 + i*13)));
+        myBalls.add(new Ball(ballArrangement[15-bpi], new PVector(800 - i*22.52, 250 + j*26 + i*13)));
         bpi++;
       }
     }
