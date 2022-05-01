@@ -11,6 +11,6 @@ class PlayerBall extends Ball {
   }
   
   void act() {
-  
+    super.act();
   }
 }

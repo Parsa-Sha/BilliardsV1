@@ -32,7 +32,7 @@ void game() {
   ellipse(60, 115, 26, 26);
 
 
-  if (newGame) {
+  if (newGame) { // Reset game code
     newGame = false;
 
     for (int i = 0; i < ballArrangement.length; i++) ballArrangement[i] = 16;
@@ -70,6 +70,8 @@ void game() {
       }
     }
   }
+  
+  
 
   switch(gameState) {
   case PLAYERBEGIN:
