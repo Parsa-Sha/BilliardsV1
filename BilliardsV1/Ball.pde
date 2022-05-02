@@ -24,7 +24,7 @@ class Ball {
   
   void act() {
     pos.add(vel);
-    vel.setMag(vel.mag()*0.97);
+    vel.setMag(vel.mag()*0.975);
     
     if (pos.y - size/2 <= 105 && pos.x + size/2 >= 85 && pos.x - size/2 <= 455) vel.y *= -1; // Top left bumper
     if (pos.y - size/2 <= 105 && pos.x + size/2 >= 505 && pos.x - size/2 <= 875) vel.y *= -1; // Top right bumper

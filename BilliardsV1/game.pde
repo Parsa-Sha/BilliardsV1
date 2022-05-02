@@ -69,9 +69,19 @@ void game() {
         bpi++;
       }
     }
+  } // End of newGame code
+  
+  for (int i = 0; i < myBalls.size(); i++) {
+    for (int j = 0; j < myBalls.size(); j++) {
+      if (i != j && 
+      myBalls.get(i).pos.x + 13 <= myBalls.get(j).pos.x &&
+      myBalls.get(i).pos.y + 13 <= myBalls.get(j).pos.x &&
+      myBalls.get(i).pos.x + 13 <= myBalls.get(j).pos.y &&
+      myBalls.get(i).pos.y + 13 <= myBalls.get(j).pos.y 
+      ) {
+      }
+    }
   }
-  
-  
 
   switch(gameState) {
   case PLAYERBEGIN:
