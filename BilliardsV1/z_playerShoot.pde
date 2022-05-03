@@ -16,28 +16,32 @@ void playerShoot() {
   println(myBalls.get(0).vel);
 }
 
-void mousePressed() { // Vx = V * cos(angle), Vy = V * sin(angle)
-  if (!hasPressed) {
-    hasPressed = true;
-    rotationPressed = atan2(mouseY - myBalls.get(0).pos.y, mouseX - myBalls.get(0).pos.x);
-    pushMatrix();
-    translate(width/2, height-480/2);
-    mouseStart = new PVector(mouseX, mouseY);
-    popMatrix();
+void mousePressed() {
+  if (gameState == PLAYERSHOOT) {
+    if (!hasPressed) {
+      hasPressed = true; // Vx = V * cos(angle), Vy = V * sin(angle)
+      rotationPressed = atan2(mouseY - myBalls.get(0).pos.y, mouseX - myBalls.get(0).pos.x);
+      pushMatrix();
+      translate(width/2, height-480/2);
+      mouseStart = new PVector(mouseX, mouseY);
+      popMatrix();
+    }
   }
 }
 
 void mouseReleased() {
-  if (dist(mouseStart.x, mouseStart.y, mouseX, mouseY) > 10) {
-    pushMatrix();
-    translate(width/2, height-480/2);
-    mouseEnd = new PVector(mouseX, mouseY);
-    popMatrix();
-    testVelocity = dist(mouseStart.x, mouseStart.y, mouseEnd.x, mouseEnd.y);
-    velocity = new PVector(testVelocity * cos(rotationPressed), testVelocity * sin(rotationPressed));
-    velocity.setMag(30);
-    velocity.mult(-1);
-    myBalls.get(0).vel = velocity;
+  if (gameState == PLAYERSHOOT) {
+    if (dist(mouseStart.x, mouseStart.y, mouseX, mouseY) > 10) {
+      pushMatrix();
+      translate(width/2, height-480/2);
+      mouseEnd = new PVector(mouseX, mouseY);
+      popMatrix();
+      testVelocity = dist(mouseStart.x, mouseStart.y, mouseEnd.x, mouseEnd.y);
+      velocity = new PVector(testVelocity * cos(rotationPressed), testVelocity * sin(rotationPressed));
+      velocity.setMag(30);
+      velocity.mult(-1);
+      myBalls.get(0).vel = velocity;
+    }
+    hasPressed = false;
   }
-  hasPressed = false;
 }
