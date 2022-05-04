@@ -2,6 +2,8 @@ PVector mouseStart, mouseEnd, velocity;
 boolean hasPressed;
 float rotationPressed;
 float testVelocity;
+float tVelbegin, tVel;
+float angle;
 
 void playerShoot() {
   pushMatrix();
@@ -25,6 +27,14 @@ void mousePressed() { // Rotate origin, mouseDragged ignoring Y changes, only X.
       translate(width/2, height-480/2);
       mouseStart = new PVector(mouseX, mouseY);
       popMatrix();
+      
+      /*
+      pushMatrix();
+      translate(myBalls.get(0).vel.x, myBalls.get(0).vel.y);
+      rotate(rotationPressed);
+      tVelbegin = mouseX;
+      popMatrix();
+      */
     }
   }
 }
@@ -36,8 +46,19 @@ void mouseReleased() {
       translate(width/2, height-480/2);
       mouseEnd = new PVector(mouseX, mouseY);
       popMatrix();
+      
+      /*
+      pushMatrix();
+      translate(myBalls.get(0).vel.x, myBalls.get(0).vel.y);
+      rotate(rotationPressed);
+      tVel = mouseX - tVelbegin;
+      popMatrix();
+      velocity = new PVector(tVel * cos(-rotationPressed), tVel * sin(-rotationPressed));
+      */
+      
       testVelocity = dist(mouseStart.x, mouseStart.y, mouseEnd.x, mouseEnd.y);
       velocity = new PVector(testVelocity * cos(rotationPressed), testVelocity * sin(rotationPressed));
+      velocity = new PVector(0, 0);
       velocity.setMag(30);
       velocity.mult(-1);
       myBalls.get(0).vel = velocity;
