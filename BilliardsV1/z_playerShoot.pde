@@ -16,7 +16,7 @@ void playerShoot() {
   println(myBalls.get(0).vel);
 }
 
-void mousePressed() {
+void mousePressed() { // Rotate origin, mouseDragged ignoring Y changes, only X. Take X change, rotate back, and then apply velocity
   if (gameState == PLAYERSHOOT) {
     if (!hasPressed) {
       hasPressed = true; // Vx = V * cos(angle), Vy = V * sin(angle)
